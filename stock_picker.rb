@@ -1,15 +1,15 @@
 def stock_picker stock_prices
     profit = nil
     best_stocks = []
-    pairs = stock_prices.combination(2).to_a
-    pairs.each do |item| 
-        current_pair_profit = item[1] - item[0] 
+    stock_pairs = stock_prices.combination(2).to_a
+    stock_pairs.each do |item| 
+        current_stock_pair_profit = item[1] - item[0] 
         if profit == nil
-            profit = current_pair_profit 
+            profit = current_stock_pair_profit 
             best_stocks.clear
             best_stocks << stock_prices.find_index(item[0]) << stock_prices.find_index(item[1])
-        elsif profit < current_pair_profit
-            profit = current_pair_profit 
+        elsif profit < current_stock_pair_profit
+            profit = current_stock_pair_profit 
             best_stocks.clear
             best_stocks << stock_prices.find_index(item[0]) << stock_prices.find_index(item[1])
         end
